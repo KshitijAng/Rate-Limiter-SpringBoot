@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ratelimiter
+  
+## Fixed Window Rate Limiter Configuration
+# [00:00 - 00:10] -> Allows 2 calls
+# [00:10 - 00:20] -> Allows 2 calls
+# [00:20 - 00:30] -> Allows 2 calls
+
+
+# Instance level-rate limiter
+resilience4j:
+  ratelimiter:
+    instances:
+      rateLimiter:
+        limitForPeriod: 2 # Max number of calls in one refresh period.
+        limitRefreshPeriod: 10s # The time window to refresh the limit
+        timeoutDuration: 0s # Max wait time for a permission; 0s means fail immediately if limit exceeded.
+      
+      rateLimiter1:
+        limitForPeriod: 5 # Max number of calls in one refresh period.
+        limitRefreshPeriod: 10s # The time window to refresh the limit
+        timeoutDuration: 0s # Max wait time for a permission; 0s means fail immediately if limit exceeded.
