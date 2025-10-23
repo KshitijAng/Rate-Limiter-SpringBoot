@@ -1,6 +1,6 @@
 # Rate Limiter (SpringBoot + Resilience4j)
 
-[!Banner](banner.png)
+![Banner](banner.png)
 
 A simple Spring Boot application demonstrating knowledge in **Rate Limiting** and implemented using **Resilience4j**. This project simulates a Weather API service with two endpoints — each protected by its own rate limiter instance.
 
